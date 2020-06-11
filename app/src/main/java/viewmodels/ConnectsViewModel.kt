@@ -16,7 +16,7 @@ class ConnectsViewModel(private val connectsRepository: ConnectsRepository) : Vi
     val connects: LiveData<ConnectModel>
         get() = _connects
 
-    suspend fun getConnects(){
+    fun getConnects(){
         //var response = connectsRepository.getConnects()
         //_connects.value = response
 
@@ -28,8 +28,6 @@ class ConnectsViewModel(private val connectsRepository: ConnectsRepository) : Vi
 
     override fun onCleared() {
         super.onCleared()
-        
-
         if(::job.isInitialized) job.cancel()
     }
 }

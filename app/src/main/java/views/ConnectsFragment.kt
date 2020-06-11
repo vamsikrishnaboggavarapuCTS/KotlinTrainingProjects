@@ -6,8 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.kotlinsample.R
+import kotlinx.android.synthetic.main.connects_fragment.*
 import network.ConnectsApi
 import repositories.ConnectsRepository
 import viewmodels.ConnectsViewModel
@@ -29,7 +32,15 @@ class ConnectsFragment : Fragment() {
 
         factory = ConnectsViewModelFactory(repository)
         viewModel = ViewModelProviders.of(this, factory).get(ConnectsViewModel::class.java)
+        viewModel.getConnects()
 
+        viewModel.connects.observe(viewLifecycleOwner, Observer { con ->
+            recycler_Connects.also {
+                it.layoutManager = LinearLayoutManager(requireContext())
+                it.setHasFixedSize(true)
+                it.adapter = ConnectsAdapter(con.data)
+            }
+        })
 
     }
 }
