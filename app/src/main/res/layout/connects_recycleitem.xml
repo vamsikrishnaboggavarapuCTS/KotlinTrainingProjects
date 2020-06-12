@@ -12,7 +12,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView">
 
         <!--    -->
         <!--    <TextView-->
@@ -26,48 +28,86 @@
         <!--        android:layout_width="match_parent"-->
         <!--        android:layout_height="match_parent"/>-->
 
-        <ImageView
+        <androidx.cardview.widget.CardView
             android:id="@+id/imageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginStart="50dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="165dp"
+            android:layout_marginRight="165dp"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintEnd_toStartOf="@+id/imageEmail"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            app:layout_constraintTop_toTopOf="parent">
 
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:loadImage="@{connects.avatar}" />
+        </androidx.cardview.widget.CardView>
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
             android:text="@{connects.first_name}"
+            android:textSize="24sp"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginBottom="23dp"
+            android:layout_width="896dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="4dp"
             android:text="@{connects.last_name}"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintStart_toEndOf="@+id/imageView" />
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="50dp"
+            android:id="@+id/imageEmail"
+            android:layout_width="60dp"
             android:layout_height="50dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="76dp"
             android:layout_marginEnd="50dp"
             android:layout_marginRight="50dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            app:srcCompat="@android:drawable/ic_dialog_email" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            android:background="@color/cardview_dark_background"/>
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/textView"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="@{connects.first_name}"-->
+        <!--            tools:layout_editor_absoluteX="25dp"-->
+        <!--            tools:layout_editor_absoluteY="46dp"-->
+        <!--            />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/textView2"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="@{connects.last_name}"-->
+        <!--            tools:layout_editor_absoluteX="81dp"-->
+        <!--            tools:layout_editor_absoluteY="65dp" />-->
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -9,9 +9,7 @@
     <fragment
         android:id="@+id/fragment"
         android:name="views.ConnectsFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="87dp"
-        tools:layout_editor_absoluteY="179dp" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
