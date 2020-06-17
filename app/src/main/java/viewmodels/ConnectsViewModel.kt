@@ -13,12 +13,11 @@ class ConnectsViewModel(private val connectsRepository: ConnectsRepository) : Vi
     private lateinit var job:Job
 
     private val _connects = MutableLiveData<ConnectModel>()
+
     val connects: LiveData<ConnectModel>
         get() = _connects
 
     fun getConnects(){
-        //var response = connectsRepository.getConnects()
-        //_connects.value = response
 
         job =Coroutines.ioThenMain(
             { connectsRepository.getConnects()},

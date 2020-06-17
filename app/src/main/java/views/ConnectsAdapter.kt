@@ -6,10 +6,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinsample.R
 import com.example.kotlinsample.databinding.ConnectsRecycleitemBinding
-import kotlinx.android.synthetic.main.connects_fragment.view.*
 import models.Data
 
-class ConnectsAdapter(private val connects :List<Data>): RecyclerView.Adapter<ConnectsAdapter.ConnectsViewHolder>() {
+class ConnectsAdapter(private val connects :List<Data>,
+                      private val listener: ConnectsRecyclerViewClickListener): RecyclerView.Adapter<ConnectsAdapter.ConnectsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConnectsViewHolder =
         ConnectsViewHolder(
@@ -25,6 +25,9 @@ class ConnectsAdapter(private val connects :List<Data>): RecyclerView.Adapter<Co
 
     override fun onBindViewHolder(holder: ConnectsViewHolder, position: Int) {
         holder.recyclerviewConnectsBinding.connects = connects[position]
+        holder.recyclerviewConnectsBinding.imageEmail.setOnClickListener {
+            listener.onRecyclerViewItemClick(holder.recyclerviewConnectsBinding.imageEmail, connects[position])
+        }
     }
 
     inner class ConnectsViewHolder(val recyclerviewConnectsBinding: ConnectsRecycleitemBinding):RecyclerView.ViewHolder(recyclerviewConnectsBinding.root)

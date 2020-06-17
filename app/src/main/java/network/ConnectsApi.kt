@@ -1,5 +1,6 @@
 package network
 
+import Util.Constants
 import models.ConnectModel
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -16,7 +17,7 @@ interface ConnectsApi {
         operator fun invoke() : ConnectsApi {
             return Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://reqres.in/api/")
+                .baseUrl(Constants.ConnectsApiBaseUrl)
                 .build()
                 .create(ConnectsApi::class.java)
         }
